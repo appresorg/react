@@ -5,11 +5,14 @@ import './App.css';
 
 function App() {
   useEffect(()=>{
-    setTimeout(() => {
-      window.$$().ready(function(){
-        window.$$(window, -1)
-      });
-    }, 100);
+    let appres_starter = setInterval(() => {
+      if(window.$$) {
+        clearInterval(appres_starter);
+        window.$$().ready(function(){
+          window.$$(window, -1)
+        });
+      }
+    },1);
    })
 
   return (
