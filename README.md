@@ -1,4 +1,4 @@
-# react sample project for apres
+# react sample project for appres
 ```
 $ cd myapp
 $ npm start
