@@ -5,15 +5,23 @@ import './App.css';
 
 function App() {
   useEffect(()=>{
-    let appres_starter = setInterval(() => {
-      if(window.$$) {
-        clearInterval(appres_starter);
-        window.$$().ready(function(){
-          window.$$(window, -1)
-        });
-      }
-    },1);
-   })
+    // mount
+    const onReady = function(sender) {
+      window.$$(window, -1);
+    }
+    const onLanguageChange = function(sender) {
+      console.log(">>> onLanguageChange");
+      window.$$(window, -1);
+    }
+    window.$$().addEvent("onReady", onReady);
+    window.$$().addEvent("onLanguageChange", onLanguageChange);
+
+    return () => {
+      // unmount
+      window.$$().removeEvent("onReady", onReady);
+      window.$$().removeEvent("onLanguageChange", onLanguageChange);  
+    };
+   }, []);
 
   return (
     <div className="App">
