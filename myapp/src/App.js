@@ -10,7 +10,6 @@ function App() {
       window.$$(window);
     }
     const onLanguageChange = function(sender) {
-      console.log(">>> onLanguageChange");
       window.$$(window);
     }
     window.$$().addEvent("onReady", onReady);
