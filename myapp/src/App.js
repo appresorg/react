@@ -7,11 +7,11 @@ function App() {
   useEffect(()=>{
     // mount
     const onReady = function(sender) {
-      window.$$(window, -1);
+      window.$$(window);
     }
     const onLanguageChange = function(sender) {
       console.log(">>> onLanguageChange");
-      window.$$(window, -1);
+      window.$$(window);
     }
     window.$$().addEvent("onReady", onReady);
     window.$$().addEvent("onLanguageChange", onLanguageChange);
